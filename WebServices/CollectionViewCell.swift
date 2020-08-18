@@ -10,7 +10,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageUrl: UIImageView!
     @IBOutlet weak var label1: UILabel!
     
     @IBOutlet weak var label2: UILabel!

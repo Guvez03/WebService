@@ -13,14 +13,14 @@ class Results : Codable {
     var wrapperType : String?
     var kind : String?
     var artistName:String?
-    var collectionViewUrl:String?
+    var artworkUrl100:String?
     
-    init(wrapperType : String,kind : String,artistName:String,collectionViewUrl:String) {
+    init(wrapperType : String,kind : String,artistName:String,artworkUrl100:String) {
         
         self.wrapperType = wrapperType
         self.artistName = artistName
         self.kind = kind
-        self.collectionViewUrl = collectionViewUrl
+        self.artworkUrl100 = artworkUrl100
     }
     
 }
