@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DrG-cn-dgv">
-                                <rect key="frame" x="0.0" y="319" width="414" height="543"/>
+                                <rect key="frame" x="0.0" y="389" width="414" height="473"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GrI-6v-sKS">
                                     <size key="itemSize" width="140" height="320"/>
@@ -89,21 +89,35 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxx-s2-k47">
-                                <rect key="frame" x="50" y="98" width="314" height="216"/>
+                                <rect key="frame" x="50" y="168" width="314" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hE-xR-1AH">
+                                <rect key="frame" x="50" y="103" width="314" height="60"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z2Y-sG-5CG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DrG-cn-dgv" firstAttribute="top" secondItem="gxx-s2-k47" secondAttribute="bottom" constant="5" id="17s-7h-vBI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0hE-xR-1AH" secondAttribute="trailing" constant="50" id="1mN-Sb-rK8"/>
                             <constraint firstItem="DrG-cn-dgv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Yq-lE-Lci"/>
+                            <constraint firstItem="0hE-xR-1AH" firstAttribute="top" secondItem="8lA-ag-qux" secondAttribute="bottom" constant="5" id="AmL-zU-75c"/>
                             <constraint firstItem="8lA-ag-qux" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="OjI-dO-6Gj"/>
-                            <constraint firstItem="gxx-s2-k47" firstAttribute="top" secondItem="8lA-ag-qux" secondAttribute="bottom" id="Ui5-DY-UBK"/>
+                            <constraint firstItem="gxx-s2-k47" firstAttribute="top" secondItem="8lA-ag-qux" secondAttribute="bottom" constant="70" id="Ui5-DY-UBK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DrG-cn-dgv" secondAttribute="bottom" id="WjB-fw-ulR"/>
                             <constraint firstItem="gxx-s2-k47" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Yng-G4-NyT"/>
                             <constraint firstItem="8lA-ag-qux" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="c8D-mM-cPv"/>
+                            <constraint firstItem="gxx-s2-k47" firstAttribute="top" secondItem="0hE-xR-1AH" secondAttribute="bottom" constant="5" id="cds-Rv-hJy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DrG-cn-dgv" secondAttribute="trailing" id="ilB-9c-rnQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8lA-ag-qux" secondAttribute="trailing" constant="50" id="mOB-oC-HsW"/>
                             <constraint firstItem="DrG-cn-dgv" firstAttribute="top" secondItem="gxx-s2-k47" secondAttribute="bottom" constant="5" id="nNV-cd-eEt"/>
+                            <constraint firstItem="0hE-xR-1AH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="uzL-t1-b7b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gxx-s2-k47" secondAttribute="trailing" constant="50" id="y9c-M3-8DR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -111,7 +125,7 @@
                     <connections>
                         <outlet property="collectionView" destination="DrG-cn-dgv" id="sS9-lM-Ktu"/>
                         <outlet property="dataPicker" destination="gxx-s2-k47" id="FPG-Ww-lfg"/>
-                        <outlet property="kindOfData" destination="8lA-ag-qux" id="cXy-Tx-Rxm"/>
+                        <outlet property="kindOfData" destination="8lA-ag-qux" id="mQD-7L-cyT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

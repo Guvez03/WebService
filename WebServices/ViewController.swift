@@ -14,18 +14,20 @@ class ViewController: UIViewController   {
 
     @IBOutlet weak var kindOfData: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+
     
     @IBOutlet weak var dataPicker: UIPickerView!
     
     var list: [Results] = []
-    var comingKind : [String] = ["song","video"]
+    var comingKind : [String] = ["book","movie","author","album", "coached-audio", "feature-movie", "interactive- booklet", "music-video", "pdf", "podcast", "podcast-episode", "software-package", "song, tv- episode"]
     
-    var type : String = ""
+    var kind : String = ""
+    var mText : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-   
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -33,22 +35,17 @@ class ViewController: UIViewController   {
         dataPicker.dataSource = self
         
     }
-    func textFieldControl (){
+    
+    @IBAction func getButton(_ sender: Any) {
         
+        mText = kindOfData.text!
         
+        print(kind)
+        print(mText)
+        self.dataPicker.isHidden = false
+        getSearchData(kind: kind, artistName: mText)
     }
-    func dataControl() {
-        
-        if type == "video" {
-            print("sdfsdf")
-              getDataMovie()
-            }else if "song".isEqual(type) {
-                print("sdfsdf")
-            getData()
-        }
-
-    }
-       
+    
     func getData(){
         
         AF.request("https://itunes.apple.com/search?term=jack+johnson",method: .get).responseJSON{ response in
@@ -64,8 +61,9 @@ class ViewController: UIViewController   {
                         for dataList in list {
                            
                             self.list = list
+                            self.dataPicker.isHidden = true
+
                             self.collectionView.reloadData()
-                            self.dataPicker.isHidden = false
 
                             
                         }
@@ -78,10 +76,10 @@ class ViewController: UIViewController   {
             
         }
     }
-    func getSearchData(type:String){
+    func getSearchData(kind:String,artistName:String){
           
-          AF.request("https://itunes.apple.com/search?term=\(type)",method: .get).responseJSON{ response in
-              
+          AF.request("https://itunes.apple.com/search?term=\(artistName)&entity=\(kind)",method: .get).responseJSON{ response in
+              print("https://itunes.apple.com/search?term=\(artistName)&entity=\(kind)")
               if let data  = response.data {
                   
                   do {
@@ -93,10 +91,9 @@ class ViewController: UIViewController   {
                           for dataList in list {
                              
                               self.list = list
+                            self.dataPicker.reloadAllComponents()
                               self.collectionView.reloadData()
-                              self.dataPicker.isHidden = false
 
-                              
                           }
                       }
                   }catch{
@@ -123,9 +120,10 @@ class ViewController: UIViewController   {
                         for dataList in list {
                            
                             self.list = list
-                            self.collectionView.reloadData()
-                            self.dataPicker.isHidden = false
+                            self.dataPicker.isHidden = true
 
+                            self.collectionView.reloadData()
+                            
                         }
                     }
                 }catch{
@@ -161,7 +159,7 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         cell.label1.text = datas.artistName!
         cell.label2.text = datas.wrapperType!
-        cell.label3.text = datas.kind!
+        cell.label3.text = datas.kind
         
         return cell
     }
@@ -179,11 +177,11 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        kindOfData.text = comingKind[row]
-        self.type = kindOfData.text!
-        kindOfData.text = ""
-        getSearchData(type: type)
+         
+        self.kind = comingKind[row]
         self.dataPicker.isHidden = true
+        
+        
     }
 
 }
