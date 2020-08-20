@@ -17,6 +17,7 @@
 		E3446D2324EA9F720072A909 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3446D2224EA9F720072A909 /* CollectionViewCell.swift */; };
 		E3446D2524EAC0C30072A909 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3446D2424EAC0C30072A909 /* Results.swift */; };
 		E3446D2724EAC1E80072A909 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3446D2624EAC1E80072A909 /* Response.swift */; };
+		E3CC7D0C24ED4B92005DD0BE /* DataDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CC7D0B24ED4B92005DD0BE /* DataDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E3446D2224EA9F720072A909 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		E3446D2424EAC0C30072A909 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		E3446D2624EAC1E80072A909 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		E3CC7D0B24ED4B92005DD0BE /* DataDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				E3446D2224EA9F720072A909 /* CollectionViewCell.swift */,
 				E3446D2424EAC0C30072A909 /* Results.swift */,
 				E3446D2624EAC1E80072A909 /* Response.swift */,
+				E3CC7D0B24ED4B92005DD0BE /* DataDetails.swift */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				E3446D1324EA9C510072A909 /* ViewController.swift in Sources */,
 				E3446D0F24EA9C510072A909 /* AppDelegate.swift in Sources */,
 				E3446D2324EA9F720072A909 /* CollectionViewCell.swift in Sources */,
+				E3CC7D0C24ED4B92005DD0BE /* DataDetails.swift in Sources */,
 				E3446D1124EA9C510072A909 /* SceneDelegate.swift in Sources */,
 				E3446D2724EAC1E80072A909 /* Response.swift in Sources */,
 				E3446D2524EAC0C30072A909 /* Results.swift in Sources */,

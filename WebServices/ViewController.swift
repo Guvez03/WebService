@@ -163,6 +163,14 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedItem = list[indexPath.row]
+        print(selectedItem)
+        
+        performSegue(withIdentifier: "goToDetails", sender: selectedItem)
+    }
+   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -183,6 +191,15 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           
+           let selected = sender as? Results
+           
+           let destinationVC = segue.destination as! DataDetails
+           
+           destinationVC.comingData = selected
 
+       }
 }
 
