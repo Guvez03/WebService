@@ -8,8 +8,9 @@
 
 import UIKit
 import Kingfisher
-class DataDetails: UIViewController {
 
+class DataDetails: UIViewController {
+        
     @IBOutlet weak var imageDetail: UIImageView!
     
     @IBOutlet weak var kindDetail: UILabel!
@@ -20,6 +21,7 @@ class DataDetails: UIViewController {
     
     @IBOutlet weak var directorDetail: UILabel!
     
+    
     @IBOutlet weak var countryDetail: UILabel!
     @IBOutlet weak var movieDetail: UILabel!
     
@@ -27,47 +29,45 @@ class DataDetails: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         let url = URL(string: "\(comingData!.artworkUrl100!)")
         imageDetail.kf.setImage(with: url)
        
-        if comingData?.kind?.isEmpty == false {
+        if let comeText = comingData?.kind {
             kindDetail.text = "Tip : \( comingData!.kind!)"
-
+        }else{
+            kindDetail.isHidden = true
         }
-        if comingData?.trackName?.isEmpty == false {
-            nameDetail.text = "Track İsim : \(comingData!.trackName!)"
-
+        if let comeText = comingData?.trackName {
+            nameDetail.text = "İsim : \( comingData!.trackName!)"
+        }else{
+            nameDetail.isHidden = true
         }
-        if comingData?.wrapperType?.isEmpty == false {
-            wrapperTypeDetail.text = "Sarıcı Türü : \(comingData!.wrapperType!)"
-
+        if let comeText = comingData?.wrapperType {
+            wrapperTypeDetail.text = "Sarıcı Tipi : \( comingData!.wrapperType!)"
+        }else{
+            wrapperTypeDetail.isHidden = true
         }
-        if comingData?.artistName?.isEmpty == false {
-            directorDetail.text = "Yönetmen Adı : \(comingData!.artistName!)"
-
+        if let comeText = comingData?.artistName {
+            directorDetail.text = "Yönetici İsim : \( comingData!.artistName!)"
+        }else{
+            directorDetail.isHidden = true
         }
-        if comingData?.country?.isEmpty == false {
-            countryDetail.text = "Ülke : \(comingData!.country!)"
-
+        if let comeText = comingData?.country {
+            countryDetail.text = "Ülke : \( comingData!.country!)"
+        }else{
+            countryDetail.isHidden = true
         }
-        if comingData?.primaryGenreName?.isEmpty == false {
-            movieDetail.text = "Tür : \(comingData!.primaryGenreName!)"
-
+        if let comeText = comingData?.primaryGenreName {
+            movieDetail.text = "Türü : \( comingData!.primaryGenreName!)"
+        }else{
+            movieDetail.isHidden = true
         }
-        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }

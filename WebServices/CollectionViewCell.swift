@@ -15,4 +15,5 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
+    
 }

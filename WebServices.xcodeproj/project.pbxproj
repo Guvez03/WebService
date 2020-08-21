@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		952918F96268137E3F97DA79 /* Pods_WebServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AB9DF2BA2DC25E1957C8C5 /* Pods_WebServices.framework */; };
+		E328D83F24EE6DF600D8CCCC /* CollectionViewResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E328D83E24EE6DF600D8CCCC /* CollectionViewResults.swift */; };
 		E3446D0F24EA9C510072A909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3446D0E24EA9C510072A909 /* AppDelegate.swift */; };
 		E3446D1124EA9C510072A909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3446D1024EA9C510072A909 /* SceneDelegate.swift */; };
 		E3446D1324EA9C510072A909 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3446D1224EA9C510072A909 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		119D460CDF05BDEB05E96B51 /* Pods-WebServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServices.release.xcconfig"; path = "Target Support Files/Pods-WebServices/Pods-WebServices.release.xcconfig"; sourceTree = "<group>"; };
 		177650CA6DB742241C3225C3 /* Pods-WebServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServices.debug.xcconfig"; path = "Target Support Files/Pods-WebServices/Pods-WebServices.debug.xcconfig"; sourceTree = "<group>"; };
 		40AB9DF2BA2DC25E1957C8C5 /* Pods_WebServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E328D83E24EE6DF600D8CCCC /* CollectionViewResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewResults.swift; sourceTree = "<group>"; };
 		E3446D0B24EA9C510072A909 /* WebServices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3446D0E24EA9C510072A909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3446D1024EA9C510072A909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E328D84024EE94E800D8CCCC /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		E328D84124EE951500D8CCCC /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		E3446D0224EA9C500072A909 = {
 			isa = PBXGroup;
 			children = (
@@ -80,17 +96,20 @@
 		E3446D0D24EA9C510072A909 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				E328D84124EE951500D8CCCC /* JSON */,
+				E328D84024EE94E800D8CCCC /* VC */,
 				E3446D0E24EA9C510072A909 /* AppDelegate.swift */,
 				E3446D1024EA9C510072A909 /* SceneDelegate.swift */,
-				E3446D1224EA9C510072A909 /* ViewController.swift */,
-				E3446D1424EA9C510072A909 /* Main.storyboard */,
 				E3446D1724EA9C570072A909 /* Assets.xcassets */,
 				E3446D1924EA9C570072A909 /* LaunchScreen.storyboard */,
+				E3446D1424EA9C510072A909 /* Main.storyboard */,
 				E3446D1C24EA9C570072A909 /* Info.plist */,
+				E3CC7D0B24ED4B92005DD0BE /* DataDetails.swift */,
+				E3446D1224EA9C510072A909 /* ViewController.swift */,
 				E3446D2224EA9F720072A909 /* CollectionViewCell.swift */,
+				E328D83E24EE6DF600D8CCCC /* CollectionViewResults.swift */,
 				E3446D2424EAC0C30072A909 /* Results.swift */,
 				E3446D2624EAC1E80072A909 /* Response.swift */,
-				E3CC7D0B24ED4B92005DD0BE /* DataDetails.swift */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -225,6 +244,7 @@
 				E3446D1124EA9C510072A909 /* SceneDelegate.swift in Sources */,
 				E3446D2724EAC1E80072A909 /* Response.swift in Sources */,
 				E3446D2524EAC0C30072A909 /* Results.swift in Sources */,
+				E328D83F24EE6DF600D8CCCC /* CollectionViewResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

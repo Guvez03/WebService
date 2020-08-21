@@ -13,12 +13,12 @@ import Kingfisher
 class ViewController: UIViewController   {
 
     @IBOutlet weak var kindOfData: UITextField!
-    @IBOutlet weak var collectionView: UICollectionView!
 
     
     @IBOutlet weak var dataPicker: UIPickerView!
     
     var list: [Results] = []
+    
     var comingKind : [String] = ["book","movie","author","album", "coached-audio", "feature-movie", "interactive- booklet", "music-video", "pdf", "podcast", "podcast-episode", "software-package", "song, tv- episode"]
     
     var kind : String = ""
@@ -28,8 +28,6 @@ class ViewController: UIViewController   {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        collectionView.delegate = self
-        collectionView.dataSource = self
         
         dataPicker.delegate = self
         dataPicker.dataSource = self
@@ -62,9 +60,6 @@ class ViewController: UIViewController   {
                            
                             self.list = list
                             self.dataPicker.isHidden = true
-
-                            self.collectionView.reloadData()
-
                             
                         }
                     }
@@ -87,14 +82,15 @@ class ViewController: UIViewController   {
                       let request = try JSONDecoder().decode(Response.self, from: data)
                       
                       if let list = request.results{
-                          
+
                           for dataList in list {
                              
                               self.list = list
-                            self.dataPicker.reloadAllComponents()
-                              self.collectionView.reloadData()
-
+                              self.dataPicker.reloadAllComponents()
+        
                           }
+                        self.performSegue(withIdentifier: "goToCell", sender: list)
+                        
                       }
                   }catch{
                       print(error.localizedDescription)
@@ -121,8 +117,7 @@ class ViewController: UIViewController   {
                            
                             self.list = list
                             self.dataPicker.isHidden = true
-
-                            self.collectionView.reloadData()
+                            
                             
                         }
                     }
@@ -136,40 +131,8 @@ class ViewController: UIViewController   {
     }
 }
 
-extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource {
+extension ViewController :UIPickerViewDelegate,UIPickerViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return list.count
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let datas = list[indexPath.row]
-        
-        let cell = 	collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        let url = URL(string: "\(datas.artworkUrl100!)")
-        cell.imageUrl.kf.setImage(with: url)
-        
-        cell.label1.text = datas.artistName!
-        cell.label2.text = datas.wrapperType!
-        cell.label3.text = datas.kind
-        
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let selectedItem = list[indexPath.row]
-        print(selectedItem)
-        
-        performSegue(withIdentifier: "goToDetails", sender: selectedItem)
-    }
    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -191,14 +154,18 @@ extension ViewController :UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           
-           let selected = sender as? Results
-           
-           let destinationVC = segue.destination as! DataDetails
-           
-           destinationVC.comingData = selected
+       
+        if segue.identifier == "goToCell" {
+        
+        let doList = sender as? [Results]
+        
+        let destinationVc = segue.destination as! CollectionViewResults
+        
+            destinationVc.comeCollectionList = doList!
+        
+        
+        }
 
        }
 }
